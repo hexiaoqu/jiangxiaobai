@@ -24,7 +24,7 @@ public class test1 {
 		}
 		System.out.println();
 		
-		//如果“美国”该键不存在，则返回默认值
+		
 		str = c.getProperty("美国", "没有发现");
 		System.out.println(str);
 	}
