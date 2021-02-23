@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -47,29 +48,25 @@ public class JDBCUtil {
 		 
 		 return null;
 	 }
-	 
-		public static void closeResources(Connection conn)  { 
-			try {
+	 public static void close(Connection conn,PreparedStatement ps) {
+		 try {
 				if(conn != null)
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}		
-	}
-	 
-		 public static void closeResources(ResultSet rs) {
-			   try {
-				    if(rs != null) rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-		 }
-		 
-		 public static void closeResources(Statement stmt) {
-			   try {
-				    if(stmt != null) stmt.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-		 }
+		  try {
+			    if(ps != null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	 }
+	 public static void closeRs(ResultSet rs) {
+		 try {
+			    if(rs != null) rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	 }
+
 }

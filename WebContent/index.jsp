@@ -1,12 +1,17 @@
-<%@ page language="java" import="utils.*,java.util.*,entity.*,java.math.BigDecimal" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" import="utils.*,java.util.*,entity.*,java.math.BigDecimal" contentType="text/html; charset=UTF-8" 
+    pageEncoding="UTF-8"%>
     <%@page import="java.sql.Connection"%>
     <%@page import="java.sql.PreparedStatement"%>
     <%@page import="java.sql.ResultSet"%>
+        <%
+    String path =request.getContextPath();
+    String basePath= request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    %>
+    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <title>首页</title>
 </head>
 <body>
@@ -19,21 +24,28 @@
 	while(rs.next()){
 		order or = new order();
 		or.setId(rs.getInt("id"));
-		or.setName(rs.getString("name"));
+		or.setName(rs.getString(2));
 		or.setDishMegs(rs.getString("dish_megs"));
 		or.setTimes(rs.getString("times"));
-		or.setAddress(rs.getString("states"));
+		or.setAddress(rs.getString("address"));
 		or.setStates(rs.getInt("states"));
 		or.setSumPrice(rs.getBigDecimal("sum_price"));
 		list.add(or);
 	}
+	JDBCUtil.close(conn, ps);
+	JDBCUtil.closeRs(rs);
 %>
   
-<a href="add.jsp">添加订单</a><br>
+
+<br>
+
 <form action="delect.jsp" method="post">
 		<!-- 用于存放选择的id，然后会随表单提交给服务器处理页面 -->
 		<input type="hidden" name="id">
 <table border="1">
+<tr>
+<td><a href="add.jsp">增加</a> </td>
+</tr>
 <tr>
 	<th>编号</th>
 	<th>姓名</th>
@@ -56,9 +68,9 @@
 					<td><%=obj.getStates()%></td>
 					<td><%=obj.getSumPrice()%></td>
 					<td>
-						<%-- <a href="doRemove.jsp?id=<%=obj.getId()%>">删除</a> --%>、
+						<%-- <a href="doRemove.jsp?id=<%=obj.getId()%>">删除</a> --%>
 						<a href="update.jsp?id=<%=obj.getId()%>">修改</a> 
-						<input type="button" value="删除" οnclick="myAction('<%=obj.getId()%>')"/>
+						<a href="delect.jsp?id=<%=obj.getId()%>">删除</a> 
 					</td>
 				</tr>
 			<%}%>
