@@ -58,31 +58,12 @@
   </TR>
   <TR><TD colspan="2" align="center">
   <INPUT type="submit" value="提 交">
+ 	
+  
   </TD></TR>
 </TABLE>
 </form>
 </div>
-添加信息为：
-<%
-if(name!=null){
-	out.print(name);
-}
-if(dish!=null){
-	out.print(dish);
-}
-if(address!=null){
-	out.print(address);
-}
-	
-if(states!=null){
-	out.print(states);
-}
-if(sum!=null){
-	out.print(sum);
-}
-
-%>
-
 <%		
 	BigDecimal ss;
 	if(sum != null){
@@ -100,7 +81,8 @@ if(sum!=null){
 		ps.setInt(6,0);
 		ps.setBigDecimal(7, ss);
 		ps.execute();
-		JDBCUtil.close(conn, ps);	
+		JDBCUtil.close(conn, ps);
+		response.sendRedirect("index.jsp");
 	}else{
 		out.print("输入错误！");
 	}
@@ -108,5 +90,7 @@ if(sum!=null){
 		
 	
 %>
+
+
 </body>
 </html>

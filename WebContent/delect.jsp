@@ -12,6 +12,8 @@
 <head>
 <meta charset="utf-8">
 <title>删除</title>
+
+<INPUT type="button" value="返回" onclick="location='index.jsp'">
 </head>
 <body>
 

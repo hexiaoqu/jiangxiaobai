@@ -44,7 +44,7 @@
 		<input type="hidden" name="id">
 <table border="1">
 <tr>
-<td><a href="add.jsp">增加</a> </td>
+<td><a href="add.jsp?states=0?price=0.0">增加</a> </td>
 </tr>
 <tr>
 	<th>编号</th>
