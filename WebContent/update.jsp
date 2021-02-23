@@ -16,9 +16,7 @@
 </head>
 <body>
 <%	
-	//String id = request.getParameter("id");
-
-	String id="75";
+	String id = request.getParameter("id");
 	List<order> list = new ArrayList();
 	String sql ="select * from `order` where id =?";
 	Connection conn = JDBCUtil.getConnection();
