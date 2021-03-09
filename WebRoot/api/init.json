@@ -1,0 +1,69 @@
+{
+	"homeInfo": {
+		"title": "\u9996\u9875",
+		"href": "page/welcome-1.html?t=1"
+	},
+	"logoInfo": {
+		"title": "LAYUI MINI",
+		"image": "images/logo.png",
+		"href": ""
+	},
+	"menuInfo": [{
+			"title": "\u5E38\u89C4\u7BA1\u7406",
+			"icon": "fa fa-address-book",
+			"href": "",
+			"target": "_self",
+			"child": [{
+					"title": "\u4E3B\u9875\u6A21\u677F",
+					"href": "",
+					"icon": "fa fa-home",
+					"target": "_self",
+					"child": [{
+							"title": "\u4E3B\u9875\u4E00",
+							"href": "page/welcome-1.html",
+							"icon": "fa fa-tachometer",
+							"target": "_self"
+						}				
+					]
+				},
+				{
+					"title": "\u83DC\u5355\u7BA1\u7406",
+					"href": "page/menu.html",
+					"icon": "fa fa-window-maximize",
+					"target": "_self"
+				},
+				{
+					"title": "\u7CFB\u7EDF\u8BBE\u7F6E",
+					"href": "page/setting.html",
+					"icon": "fa fa-gears",
+					"target": "_self"
+				},
+				{
+					"title": "\u8868\u683C\u793A\u4F8B",
+					"href": "page/table.html",
+					"icon": "fa fa-file-text",
+					"target": "_self"
+				},
+				{
+					"title": "\u8868\u5355\u793A\u4F8B",
+					"href": "",
+					"icon": "fa fa-calendar",
+					"target": "_self",
+					"child": [{
+							"title": "\u666E\u901A\u8868\u5355",
+							"href": "page/form.html",
+							"icon": "fa fa-list-alt",
+							"target": "_self"
+						},
+						{
+							"title": "\u5206\u6B65\u8868\u5355",
+							"href": "page/form-step.html",
+							"icon": "fa fa-navicon",
+							"target": "_self"
+						}
+					]
+				}				
+			]
+		}
+	]
+}
