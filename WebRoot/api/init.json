@@ -4,7 +4,7 @@
 		"href": "page/welcome-1.html?t=1"
 	},
 	"logoInfo": {
-		"title": "LAYUI MINI",
+		"title": "\u6C5F\u5C0F\u767D",
 		"image": "images/logo.png",
 		"href": ""
 	},
@@ -14,17 +14,10 @@
 			"href": "",
 			"target": "_self",
 			"child": [{
-					"title": "\u4E3B\u9875\u6A21\u677F",
-					"href": "",
-					"icon": "fa fa-home",
+					"title": "\u4E3B\u9875",
+					"href": "page/welcome-1.html",
+					"icon": "fa fa-tachometer",
 					"target": "_self",
-					"child": [{
-							"title": "\u4E3B\u9875\u4E00",
-							"href": "page/welcome-1.html",
-							"icon": "fa fa-tachometer",
-							"target": "_self"
-						}				
-					]
 				},
 				{
 					"title": "\u83DC\u5355\u7BA1\u7406",
@@ -45,19 +38,19 @@
 					"target": "_self"
 				},
 				{
-					"title": "\u8868\u5355\u793A\u4F8B",
+					"title": "\u79EF\u5206\u5546\u57CE",
 					"href": "",
 					"icon": "fa fa-calendar",
 					"target": "_self",
 					"child": [{
-							"title": "\u666E\u901A\u8868\u5355",
-							"href": "page/form.html",
+							"title": "\u793C\u54C1\u5217\u8868",
+							"href": "%23login?action=aaa",
 							"icon": "fa fa-list-alt",
 							"target": "_self"
 						},
 						{
-							"title": "\u5206\u6B65\u8868\u5355",
-							"href": "page/form-step.html",
+							"title": "\u589E\u52A0\u793C\u54C1",
+							"href": "table?action=giftAdd",
 							"icon": "fa fa-navicon",
 							"target": "_self"
 						}

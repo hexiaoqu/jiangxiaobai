@@ -1,6 +1,7 @@
 package com.dome.param;
 
 import com.dome.entity.User;
+import com.dome.utils.Constants;
 
 public class UserParams extends User{
 
@@ -13,6 +14,7 @@ public class UserParams extends User{
 	private int states;
 	private int rem;
 	private User user;
+	
 	public int getStates() {
 		return states;
 	}

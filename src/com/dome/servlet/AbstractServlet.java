@@ -177,13 +177,13 @@ public abstract class AbstractServlet extends HttpServlet{
 	
 	
 	/**
-	 * é»˜è®¤è¿”å›ž
+	 * Ä¬ÈÏ·µ»Ø
 	 * @param req
 	 * @param resp
 	 * @return
 	 */
 	public Object execute(HttpServletRequest req,HttpServletResponse resp) {
-		return "pre/index";
+		return "pre/dl";
 	}
 	
 	

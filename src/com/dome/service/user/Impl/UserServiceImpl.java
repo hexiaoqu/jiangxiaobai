@@ -46,5 +46,69 @@ public class UserServiceImpl implements UserService{
 		}
 		
 	}
+
+	@Override
+	public User FinderUserEmail(String name, String email) {
+		User user =null;
+		Connection connection = null;
+		try {
+			connection = JDBCUtils.getConnection();
+			UserDao userdao = new UserDaoImpl(connection);
+			user= userdao.findUserEmail(name, email);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.close(connection);
+		}
+		return user;
+	}
+
+	@Override
+	public void updateUserCode(int id, String code) {
+		Connection connection = null;
+		try {
+			connection = JDBCUtils.getConnection();
+			UserDao userDao = new UserDaoImpl(connection);
+			userDao.updateUserCode(id, code);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.close(connection);
+		}
 		
+	}
+	
+	@Override
+	public User FinderUserAll(int id) {
+		User user =null;
+		Connection connection = null;
+		try {
+			connection = JDBCUtils.getConnection();
+			UserDao userdao = new UserDaoImpl(connection);
+			user= userdao.findUserAll(id);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.close(connection);
+		}
+		return user;
+	}
+
+	@Override
+	public int updateUserPwd(int id, String pwd) {
+		int a=1;
+		Connection connection = null;
+		try {
+			connection = JDBCUtils.getConnection();
+			UserDao userDao = new UserDaoImpl(connection);
+			userDao.updateUserPwd(id, pwd);
+			a=0;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtils.close(connection);
+		}
+		return a;
+	}
 }

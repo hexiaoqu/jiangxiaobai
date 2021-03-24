@@ -10,45 +10,47 @@ import java.util.Date;
 import java.util.Properties;
  
 public class SendMail {
- 
-	// ·¢¼şÈËµÄÓÊÏäÕËºÅÈç£ºxxx@163.com
+	
+	public static String url="http://localhost:8080/JXB";
+	
+	// å‘ä»¶äººçš„é‚®ç®±è´¦å·å¦‚ï¼šxxx@163.com
 	public static String sendEmailAccount = "hxq1137793660@163.com";
-	// ·¢¼şÈËµÄÓÊÏäµÄÊÚÈ¨Âë(×Ô¼ºÔÚÓÊÏä·şÎñÆ÷ÖĞ¿ªÆô²¢ÉèÖÃ)
-	public static String sendEmailPassword = "";
-	// ·¢¼şÈËÓÊÏäµÄSMTP·şÎñÆ÷µØÖ·£¬Èç£ºsmtp.163.com
-	public static String sendEmailSMTPHost = "hxq1137793660.163.com";
-	// ÊÕ¼şÈËµÄÓÊÏäÕËºÅ
-	public static String receiveMailAccount = "";
+	// å‘ä»¶äººçš„é‚®ç®±çš„æˆæƒç (è‡ªå·±åœ¨é‚®ç®±æœåŠ¡å™¨ä¸­å¼€å¯å¹¶è®¾ç½®)
+	public static String sendEmailPassword = "QZHNZCDMYLTYDXPY";
+	// å‘ä»¶äººé‚®ç®±çš„SMTPæœåŠ¡å™¨åœ°å€ï¼Œå¦‚ï¼šsmtp.163.com
+	public static String sendEmailSMTPHost = "smtp.163.com";
+	// æ”¶ä»¶äººçš„é‚®ç®±è´¦å·
+	public static String receiveMailAccount = "hxq1137793660@qq.com";
  
-	// °Ñ·¢ËÍÓÊ¼ş·â×°Îªº¯Êı£¬²ÎÊıÎªÊÕ¼şÈËµÄÓÊÏäÕËºÅºÍÒª·¢ËÍµÄÄÚÈİ
+	// æŠŠå‘é€é‚®ä»¶å°è£…ä¸ºå‡½æ•°ï¼Œå‚æ•°ä¸ºæ”¶ä»¶äººçš„é‚®ç®±è´¦å·å’Œè¦å‘é€çš„å†…å®¹
 	public void sendMail(String receiveMailAccount, String mailContent) {
-		// ´´½¨ÓÃÓÚÁ¬½ÓÓÊ¼ş·şÎñÆ÷µÄ²ÎÊıÅäÖÃ
+		// åˆ›å»ºç”¨äºè¿æ¥é‚®ä»¶æœåŠ¡å™¨çš„å‚æ•°é…ç½®
 		Properties props = new Properties();
-		// ÉèÖÃÊ¹ÓÃSMTPĞ­Òé
+		// è®¾ç½®ä½¿ç”¨SMTPåè®®
 		props.setProperty("mail.transport.protocol", "smtp");
-		// ÉèÖÃ·¢¼şÈËµÄSMTP·şÎñÆ÷µØÖ·
+		// è®¾ç½®å‘ä»¶äººçš„SMTPæœåŠ¡å™¨åœ°å€
 		props.setProperty("mail.smtp.host", sendEmailSMTPHost);
-		// ÉèÖÃĞèÒªÑéÖ¤
+		// è®¾ç½®éœ€è¦éªŒè¯
 		props.setProperty("mail.smtp.auth", "true");
  
-		// ¸ù¾İÅäÖÃ´´½¨»á»°¶ÔÏó, ÓÃÓÚºÍÓÊ¼ş·şÎñÆ÷½»»¥
+		// æ ¹æ®é…ç½®åˆ›å»ºä¼šè¯å¯¹è±¡, ç”¨äºå’Œé‚®ä»¶æœåŠ¡å™¨äº¤äº’
 		Session session = Session.getInstance(props);
-		// ÉèÖÃdebugÄ£Ê½£¬±ãÓÚ²é¿´·¢ËÍ¹ı³ÌËù²úÉúµÄÈÕÖ¾
+		// è®¾ç½®debugæ¨¡å¼ï¼Œä¾¿äºæŸ¥çœ‹å‘é€è¿‡ç¨‹æ‰€äº§ç”Ÿçš„æ—¥å¿—
 		session.setDebug(true);
  
 		try {
-			// ´´½¨Ò»·âÓÊ¼ş
-			MimeMessage message = createMimeMessage(session, sendEmailAccount, receiveMailAccount, mailContent);
+			// åˆ›å»ºä¸€å°é‚®ä»¶
+			MimeMessage message = createMimeMessage(session, sendEmailAccount, receiveMailAccount, url+mailContent);
  
-			// ¸ù¾İ Session »ñÈ¡ÓÊ¼ş´«Êä¶ÔÏó
+			// æ ¹æ® Session è·å–é‚®ä»¶ä¼ è¾“å¯¹è±¡
 			Transport transport = session.getTransport();
  
 			transport.connect(sendEmailAccount, sendEmailPassword);
  
-			// ·¢ËÍÓÊ¼ş, ·¢µ½ËùÓĞµÄÊÕ¼şµØÖ·, Í¨¹ımessage.getAllRecipients() ¿ÉÒÔ»ñÈ¡µ½ÔÚ´´½¨ÓÊ¼ş¶ÔÏóÊ±Ìí¼ÓµÄËùÓĞÊÕ¼şÈË
+			// å‘é€é‚®ä»¶, å‘åˆ°æ‰€æœ‰çš„æ”¶ä»¶åœ°å€, é€šè¿‡message.getAllRecipients() å¯ä»¥è·å–åˆ°åœ¨åˆ›å»ºé‚®ä»¶å¯¹è±¡æ—¶æ·»åŠ çš„æ‰€æœ‰æ”¶ä»¶äºº
 			transport.sendMessage(message, message.getAllRecipients());
  
-			// ¹Ø±ÕÁ¬½Ó
+			// å…³é—­è¿æ¥
 			transport.close();
 		} catch (NoSuchProviderException e) {
 			// TODO Auto-generated catch block
@@ -65,38 +67,38 @@ public class SendMail {
 	/**
 	 * 
 	 * @param session
-	 *            ºÍ·şÎñÆ÷½»»¥µÄ»á»°
+	 *            å’ŒæœåŠ¡å™¨äº¤äº’çš„ä¼šè¯
 	 * @param sendMail
-	 *            ·¢¼şÈËÓÊÏä
+	 *            å‘ä»¶äººé‚®ç®±
 	 * @param receiveMail
-	 *            ÊÕ¼şÈËÓÊÏä
+	 *            æ”¶ä»¶äººé‚®ç®±
 	 * @return
 	 * @throws Exception
 	 */
 	public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail,
 			String mailContent) throws Exception {
-		// ´´½¨Ò»·âÓÊ¼ş
+		// åˆ›å»ºä¸€å°é‚®ä»¶
 		MimeMessage message = new MimeMessage(session);
  
-		// ÉèÖÃ·¢¼şÈËĞÕÃûºÍ±àÂë¸ñÊ½
-		message.setFrom(new InternetAddress(sendMail, "Í¼Êé¹ÜÀíÏµÍ³", "UTF-8"));
+		// è®¾ç½®å‘ä»¶äººå§“åå’Œç¼–ç æ ¼å¼
+		message.setFrom(new InternetAddress(sendMail, "æ±Ÿå°ç™½åå°ç³»ç»Ÿ", "UTF-8"));
  
-		// ÊÕ¼şÈË
-		message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "×ğ¾´µÄÓÃ»§", "UTF-8"));
+		// æ”¶ä»¶äºº
+		message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "å°Šæ•¬çš„ç”¨æˆ·", "UTF-8"));
  
-		// ÉèÖÃÓÊ¼şÖ÷Ìâ
-		message.setSubject("ÕÒ»ØÃÜÂëÌáĞÑ", "UTF-8");
+		// è®¾ç½®é‚®ä»¶ä¸»é¢˜
+		message.setSubject("ä¿®æ”¹å¯†ç éªŒè¯", "UTF-8");
  
-		// ÉèÖÃÓÊ¼şÕıÎÄ
+		// è®¾ç½®é‚®ä»¶æ­£æ–‡
 		message.setContent(mailContent, "text/html;charset=UTF-8");
  
-		// ÉèÖÃ·¢¼şÊ±¼ä
+		// è®¾ç½®å‘ä»¶æ—¶é—´
 		message.setSentDate(new Date());
  
-		// ±£´æÉèÖÃ
+		// ä¿å­˜è®¾ç½®
 		message.saveChanges();
  
 		return message;
 	}
-
+ 
 }
