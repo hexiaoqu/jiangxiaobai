@@ -17,7 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;  
 import org.apache.commons.fileupload.FileUploadException;  
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;  
-import org.apache.commons.fileupload.servlet.ServletFileUpload;  
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
   
 /** 
  * 文件上传工具�? 
@@ -55,6 +56,8 @@ public class UploadUtils {
     private String saveUrl;  
     // 文件�?终的url包括文件�?  
     private String fileUrl;  
+    //非文件上传域map
+    private Map<String,String> foList;
   
     public UploadUtils() {  
         // 其中images,flashs,medias,files,对应文件夹名�?,对应dirName  
@@ -83,7 +86,10 @@ public class UploadUtils {
             fieldsMap = this.initFields(request);  
         }  
         // 上传  
-        List<FileItem> fiList = (List<FileItem>) fieldsMap.get(UploadUtils.FILE_FIELDS);  
+        List<FileItem> fiList = (List<FileItem>) fieldsMap.get(UploadUtils.FILE_FIELDS); 
+        // 普通域
+        //foList = (Map<String, String>) fieldsMap.get(UploadUtils.FORM_FIELDS);
+        
         if (fiList != null) {  
             for (FileItem item : fiList) {  
                 infos[1] = this.saveFile(item);  
@@ -150,16 +156,17 @@ public class UploadUtils {
             String ymd = sdf.format(new Date());  
             savePath += ymd + "/";  
             saveUrl += ymd + "/"; 
-
+            System.out.println("svarPath="+savePath);
+            System.out.println("saveUrl="+saveUrl);
             File dirFile = new File(savePath);  
             if (!dirFile.exists()) {  
                 dirFile.mkdirs();  
-            }  
-            
+            }              
             // 获取上传临时路径  
             
             tempPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
-            File file = new File(tempPath);  
+            File file = new File(tempPath); 
+            System.out.println("tempPath="+tempPath);
             if (!file.exists()) {  
                 file.mkdirs();  
             }  
@@ -363,6 +370,14 @@ public class UploadUtils {
 
 	public void setFileUrl(String fileUrl) {
 		this.fileUrl = fileUrl;
+	}
+
+	public Map<String, String> getFoList() {
+		return foList;
+	}
+
+	public void setFoList(Map<String, String> foList) {
+		this.foList = foList;
 	}  
     
     

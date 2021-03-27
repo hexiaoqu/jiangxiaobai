@@ -50,6 +50,12 @@ public class Login implements Serializable{
 		
 	}
 	
+	@Override
+	public String toString() {
+		return "Login [loginId=" + loginId + ", userId=" + userId + ", loginTime=" + loginTime + ", loginStatus="
+				+ loginStatus + ", loginRemark=" + loginRemark + "]";
+	}
+	
 
 	
 

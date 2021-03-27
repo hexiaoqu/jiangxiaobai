@@ -18,8 +18,8 @@ public class UserGift implements Serializable{
 	private String lread;	//简单介绍
 	private String lbaiduread;	//详细介绍
 	private Date ltime;		//时间
-	private Integer delete;
-	
+	private Integer hot;
+	private String ishot;
 	
 	public Integer getLid() {
 		return lid;
@@ -57,11 +57,12 @@ public class UserGift implements Serializable{
 	public void setLtime(Date ltime) {
 		this.ltime = ltime;
 	}
-	public Integer getDelete() {
-		return delete;
+
+	public Integer getHot() {
+		return hot;
 	}
-	public void setDelete(Integer delete) {
-		this.delete = delete;
+	public void setHot(Integer hot) {
+		this.hot = hot;
 	}
 	public String getLname() {
 		return lname;
@@ -69,6 +70,20 @@ public class UserGift implements Serializable{
 	public void setLname(String lname) {
 		this.lname = lname;
 	}
+	public String getIshot() {
+		return ishot;
+	}
+	public void setIshot(String ishot) {
+		this.ishot = ishot;
+	}
+	@Override
+	public String toString() {
+		return "UserGift [lid=" + lid + ", lname=" + lname + ", lprice=" + lprice + ", lintegral=" + lintegral
+				+ ", lread=" + lread + ", lbaiduread=" + lbaiduread + ", ltime=" + ltime + ", hot=" + hot + "]";
+	}
+
+
+	
 	
 	
 	

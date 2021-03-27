@@ -83,7 +83,7 @@
                 	layer.msg("邮件已发送")
                         //window.location.href="login?action=ccc#uid="+bb;  
                 }else{
-                	layer.msg("用户名或密码错误！")
+                	layer.msg("用户名或邮箱错误！")
                 }
             },
             error:function(){

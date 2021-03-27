@@ -14,7 +14,8 @@ public class ReturnResult implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	private int count;
+	private int code;
 	private int total;
     private int status;
     private Object data;
@@ -44,7 +45,7 @@ public class ReturnResult implements Serializable{
         this.message = message;
     }
     /**
-     * 返回成功状�??
+     * 返回成功状�??
      * @param obj
      */
     public ReturnResult returnSuccess(Object obj){
@@ -53,14 +54,14 @@ public class ReturnResult implements Serializable{
         return this;
     }
     /**
-     * 返回默认成功状�??
+     * 返回默认成功状�??
      */
     public ReturnResult returnSuccess(){
         this.status=Constants.ReturnResult.SUCCESS;
         return this;
     }
     /**
-     * 返回失败状�??
+     * 返回失败状�??
      * @param message
      */
     public ReturnResult returnFail(String message){
@@ -90,6 +91,22 @@ public class ReturnResult implements Serializable{
 
 	public void setTotal(int total) {
 		this.total = total;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public void setCode(int code) {
+		this.code = code;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
     
     

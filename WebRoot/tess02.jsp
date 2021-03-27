@@ -79,10 +79,8 @@ layui.use('upload', function(){
 		    	 obj.preview(function(index, file, result){
 		    		 $('#demo1').append(
 		 		            '<div  class="file-iteme">' +
-//		  		            '<div class="handle"><span value="'+res.data.sel+'" class="glyphicon glyphicon-trash">X</span></div>' +
 		 		            '<div class="handle" id="dd1"><span class="glyphicon glyphicon-trash">X</span></div>' +
 		 	 	            '<img src="'+ result +'" alt="'+ file.name +'"  width="100" height="100" class="layui-upload-img">' +
-//		  		            '<img src="'+ res.data.addImgs +'" width="100" height="100"  class="layui-upload-img">' +
 		 	 	            '<div class="info">' + file.name + '</div>' +
 		 		            '</div>'
 		 		        );

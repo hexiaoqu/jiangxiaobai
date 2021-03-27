@@ -41,7 +41,7 @@ public class LoginFilter implements Filter{
 		//获取请求URL，等�? 项目�?+Servlet路径
 		String requestURL = req.getRequestURI(); 
 
-		if(requestURL.contains("Home")||requestURL.contains("pre")||requestURL.contains("page/")) {
+		if(requestURL.contains("Home")||requestURL.contains("pre")||requestURL.contains("page/")||requestURL.contains("backend")) {
 			HttpSession session = req.getSession();
 			User user = (User)session.getAttribute("user");
 			if(EmptyUtils.isEmpty(user)) {

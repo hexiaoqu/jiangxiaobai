@@ -2,8 +2,14 @@ package com.dome.servlet;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import com.dome.entity.Login;
 import com.dome.entity.User;
@@ -22,26 +28,75 @@ import com.dome.utils.VerifyUtil;
 public class test1 {
 	public static void main(String[] args) {
 		
-//		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//�������ڸ�ʽ
-//		System.out.println(df.format(new Date()));// new Date()Ϊ��ȡ��ǰϵͳʱ��
-//		String SendTime=df.format(new Date());
-//		System.out.println(SendTime);
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(df.format(new Date()));
+		//String SendTime=df.format(new Date());
+		//System.out.println(SendTime);
 //		UserGift ug = new UserGift();
 //		UserGift uug = new UserGift();
-//		giftService gs = new giftServiceImpl();
+//		giftService gs = new giftServiceImpl();		
+//		Map<String,Object> map=gs.queryGiftList(2, 10);		
+//		  Set<Entry<String, Object>> setResult = map.entrySet();
+//		  Iterator<Entry<String,Object>> itr = setResult.iterator();
+//		  List<UserGift> list = new ArrayList<>();
+//		  Object list2 = null;
+//		  int size = 0;
+//		  while(itr.hasNext()){
+//			    Entry<String,Object> entry = itr.next();
+//			    if(entry.getKey().equals("list")){
+//			    	list2 = entry.getValue();
+//			    }
+//			    if(entry.getKey().equals("conut")){
+//			    	size = Integer.parseInt((String)entry.getValue());
+//			    }
+//		  }
+//		    
+//		  if(list2 instanceof ArrayList<?>) {
+//				for(Object o:(List<?>)list2) {
+//					list.add(UserGift.class.cast(o));
+//				}
+//		  }
+//		for(Object l:list) {
+//			System.out.println(l.toString());
+//		}
+//		System.out.println(size);
+//		
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		Date currnetDate = new Date();
+//
+//		Calendar calendar = Calendar.getInstance();
+//
+//		Test test = new Test();
+//
+//		Date dateResult = test.dayAddAndSub(Calendar.DATE, -1); //一个月中的某天
+
+		//Date dateResult = test.dayAddAndSub(Calendar.HOUR , -4); //小时
+
+		//Date dateResult = test.dayAddAndSub(Calendar.MINUTE , -60); //分钟
+
+		//Date dateResult = test.dayAddAndSub(Calendar.MONTH , -1); //月
+
+		//System.out.println(sdf.format(dateResult));
+//		String lid="1";
+//		Integer id =Integer.parseInt(lid);
+//		
+//		System.out.println(id+1);
+		
 //		ug.setLbaiduread("123133312313");
 //		ug.setLintegral(111);
 //		ug.setLname("礼品一号");
-//		ug.setLprice(123.00);
+//		Double prioc=Double.parseDouble("110.1");
+//		System.out.println(prioc);
+//		ug.setLprice(prioc);
 //		ug.setLread("aaaa");
 //		gs.saveGift(ug);
 //		uug=gs.getGiftID("礼品一号");
 //		System.out.println(uug.getLid());
-		Map<String, Object> map = VerifyUtil.createImage();
-		String aaa = VerifyUtil.code;	
-		UserService us = new UserServiceImpl();
-		us.updateUserCode(1, aaa);
-		System.out.println(aaa);
+//		Map<String, Object> map = VerifyUtil.createImage();
+//		String aaa = VerifyUtil.code;	
+//		UserService us = new UserServiceImpl();
+//		us.updateUserCode(1, aaa);
+//		System.out.println(aaa);
 //		Login login = new Login();
 //		login.setUserId(1);
 //		login.setLoginStatus(1);

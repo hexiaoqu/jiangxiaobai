@@ -17,7 +17,7 @@
 					"title": "\u4E3B\u9875",
 					"href": "page/welcome-1.html",
 					"icon": "fa fa-tachometer",
-					"target": "_self",
+					"target": "_self"
 				},
 				{
 					"title": "\u83DC\u5355\u7BA1\u7406",
@@ -32,19 +32,13 @@
 					"target": "_self"
 				},
 				{
-					"title": "\u8868\u683C\u793A\u4F8B",
-					"href": "page/table.html",
-					"icon": "fa fa-file-text",
-					"target": "_self"
-				},
-				{
 					"title": "\u79EF\u5206\u5546\u57CE",
 					"href": "",
 					"icon": "fa fa-calendar",
 					"target": "_self",
 					"child": [{
 							"title": "\u793C\u54C1\u5217\u8868",
-							"href": "%23login?action=aaa",
+							"href": "table?action=giftList",
 							"icon": "fa fa-list-alt",
 							"target": "_self"
 						},
