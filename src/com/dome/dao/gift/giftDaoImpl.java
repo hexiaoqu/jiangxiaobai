@@ -165,8 +165,6 @@ public class giftDaoImpl extends BaseDaoImpl implements giftDao{
 		sb2.append(" order by lid ASC");		
 		String sql = sb.toString();
 		String sql2 = sb2.toString();
-		System.out.println("sql:"+sql);
-		System.out.println("sql2:"+sql2);
 		ResultSet rs = null;		
 		ResultSet rs2 = null;
 		Integer count = 0;

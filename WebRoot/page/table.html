@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         <div class="layui-inline">
-                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
+                            <button type="submit" id="tijiao" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
                         </div>
                     </div>
                 </form>
@@ -97,33 +97,39 @@
             ]],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
+            id:"currentTableId",
             page: true,
             skin: 'line'
         });
-
-        // 监听搜索操作
-        form.on('submit(data-search-btn)', function (data) {
-            var result = JSON.stringify(data.field);
-            layer.alert(result, {
-                title: '最终的搜索信息'
-            });
-
-            //执行搜索重载
-            table.reload('currentTableId', {
-                page: {
-                    curr: 1
-                }
-                , where: {
-                    searchParams: result
-                }
-            }, 'data');
-
-            return false;
+	
+        
+        var $ = layui.$, active = {
+        	    reload: function(){
+        	      var demoReload = $('#demoReload');
+        	      
+        	      //执行重载
+        	      table.reload('currentTableId', {
+        	        page: {
+        	          curr: 1 //重新从第 1 页开始
+        	        }
+        	        ,where: {
+        	        	  lname:lname,
+                     		hot:re
+        	        }
+        	      }, 'data');
+        	    }
+        	  };
+        
+        $("#tijiao").on('click', function(){
+        	 var type = $(this).data('type');
+        	    active[type] ? active[type].call(this) : '';
         });
+        
 
         /**
          * toolbar监听事件
          */
+       
         table.on('toolbar(currentTableFilter)', function (obj) {
             if (obj.event === 'add') {  // 监听添加操作
                 var index = layer.open({

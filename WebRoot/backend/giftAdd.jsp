@@ -185,9 +185,9 @@ layui.use(['form','jquery','upload'], function () {
         ,done: function(res){
             //上传失败
             if(res){
-                return layer.msg("上传成功");
+                return console.log("上传成功");
                 }else{
-                	return layer.msg('上传失败');
+                	return console.log('上传失败');
                     }
         }
         ,error: function(){

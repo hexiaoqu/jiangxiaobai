@@ -38,7 +38,7 @@
                         </div>
                         
                         <div class="layui-inline">
-                            <button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
+                            <button type="submit" id="tijiao" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>
                         </div>
                     </div>
                 </form>
@@ -65,16 +65,12 @@
 </div>
 <script src="${ctx}/lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
 <script>
-
-
-
-
     layui.use(['form', 'table'], function () {
         var $ = layui.jquery,
             form = layui.form,
             table = layui.table;
 		var test;
-       var tableIns = table.render({
+      table.render({
             elem: '#currentTableId',
             url: '${ctx}/table?action=giftFirstTable',
             toolbar: '#toolbarDemo',
@@ -87,50 +83,48 @@
                 {type: "checkbox", width: 60},
                 {field: 'lid', width: 100, title: 'ID', sort: true},
                 {field: 'lname', width: 100, title: '礼品名称'},
-                {field: 'hot', width: 150, title: '是否参与活动',align: "center"},
+                {field: 'hot', width: 100, title: '是否参与活动',align: "center"},
                 {field: 'lread', width: 150, title: '简单介绍'},
-                {field: 'ltime', width: 250, title: '发布时间', sort: true,templet:function(d){
+                {field: 'ltime', width: 200, title: '发布时间', sort: true,templet:function(d){
                     return layui.util.toDateString(d.ltime, 'yyyy年-MM月-dd日 HH:mm:ss')}
                     },
-                {field: 'lprice', width: 200, title: '所需积分', sort: true},
-                {title: '操作', minWidth: 120, toolbar: '#aaa', align: "center"},
+                {field: 'lprice', width: 150, title: '所需积分', sort: true},
+                {title: '图片显示', minWidth: 120, toolbar: '#aaa', align: "center"},
                 {title: '操作', minWidth: 100, toolbar: '#currentTableBar', align: "center"}
             ]],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
-            id:'idTest',
+            id:'currentTableId',
             page: true,
             skin: 'line'
         });
 
-    // 监听搜索操作
-       form.on('submit(data-search-btn)', function () {
-           var lname = $("#lname").val();
-           if($("#hot").is(":checked")){
-               var re= $('#hot').val();
-               }else{
+      form.on('submit(data-search-btn)', function () {
+          var lname = $("#lname").val();
+          if($("#hot").is(":checked")){
+              var re= $('#hot').val();
+              }else{
 				var re ="0";
-                   }
-           if(lname.replace(/\s*/g, "") ==''){
-           	  layer.msg("清输入要搜索的礼品名称");
-           	  return false;
-               }            
-           //执行搜索重载           
-           tableIns.reload('idTest', {
-               url:'${ctx}/table?action=likeGift',
-               page: {
-                   curr: 1
-               }
-               , where: {
-                   lname:lname,
-               		hot:re
-               }
-           });
+                  }
+          if(lname.replace(/\s*/g, "") ==''){
+          	  layer.msg("清输入要搜索的礼品名称");
+          	  return false;
+              }    
+          console.log(re+" "+lname);                
+          //执行搜索重载           
+          table.reload('currentTableId', {
+              url:'${ctx}/table?action=likeGift',
+              page: {
+                  curr: 1
+              }
+              , where: {
+                  lname:lname,
+              		hot:re
+              }
+          });
 
-           return false;
-       });
-
-
+          return false;
+      });
       
         /**
          * toolbar监听事件
@@ -196,7 +190,7 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['100%', '100%'],
-                    content: '${ctx}/table?action=giftupdateList',
+                   // content: '${ctx}/table?action=giftupdateList',
                 });
                 $(window).on("resize", function () {
                     layer.full(index);

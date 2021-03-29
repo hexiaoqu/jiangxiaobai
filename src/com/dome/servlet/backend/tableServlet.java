@@ -60,6 +60,9 @@ public class tableServlet extends AbstractServlet{
 	public String giftupdateList(HttpServletRequest request,HttpServletResponse response)throws Exception{
 		return "/backend/giftlist";
 	}
+	public String gift(HttpServletRequest request,HttpServletResponse response)throws Exception{
+		return "/backend/orderlist";
+	}
 	
 	public ReturnResult likeGift(HttpServletRequest request,HttpServletResponse response) throws Exception{		
 		String lname =request.getParameter("lname");
@@ -85,15 +88,11 @@ public class tableServlet extends AbstractServlet{
 					list.add(UserGift.class.cast(o));
 				}
 		  }
-		  for(Object l:list) {
-			  System.out.println(l);
-		  }
-		  System.out.println(size);
 		ReturnResult result = new ReturnResult();
-		result.setData(list);
-		result.returnSuccess("成功");
+		result.returnSuccess("成功");	
 		result.setCount(size);
 		result.setCode(0);
+		result.setData(list);
 		return result;		
 	}
 	
@@ -121,6 +120,43 @@ public class tableServlet extends AbstractServlet{
 	}
 	
 	public ReturnResult giftFirstTable(HttpServletRequest request,HttpServletResponse response) throws Exception {		
+		
+//		String lname =request.getParameter("lname");
+//		String hot =request.getParameter("hot");
+//		if(lname !=null) {
+//			Integer intHot = Integer.parseInt(hot);
+//			Map<String,Object> map=gs.likeGift(lname, intHot);
+//			  Set<Entry<String, Object>> setResult = map.entrySet();
+//			  Iterator<Entry<String,Object>> itr = setResult.iterator();
+//			  List<UserGift> list = new ArrayList<>();
+//			  Object list2 = null;
+//			  int size = 0;
+//			  while(itr.hasNext()){
+//				    Entry<String,Object> entry = itr.next();
+//				    if(entry.getKey().equals("list")){
+//				    	list2 = entry.getValue();
+//				    }
+//				    if(entry.getKey().equals("conut")){
+//				    	size = Integer.parseInt((String)entry.getValue());
+//				    }
+//			  }		    
+//			  if(list2 instanceof ArrayList<?>) {
+//					for(Object o:(List<?>)list2) {
+//						list.add(UserGift.class.cast(o));
+//					}
+//			  }
+//			  for(Object l:list) {
+//				  System.out.println(l);
+//			  }
+//			  System.out.println(size);
+//			ReturnResult result = new ReturnResult();
+//			result.setData(list);
+//			result.returnSuccess("成功");
+//			result.setCount(size);
+//			result.setCode(0);
+//			return result;		
+//		}
+//		
 		String page = request.getParameter("page");
 		String pageSize = request.getParameter("limit");
 		giftService gs = new giftServiceImpl();		

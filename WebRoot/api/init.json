@@ -1,7 +1,7 @@
 {
 	"homeInfo": {
 		"title": "\u9996\u9875",
-		"href": "page/welcome-1.html?t=1"
+		"href": "table?action=gift"
 	},
 	"logoInfo": {
 		"title": "\u6C5F\u5C0F\u767D",
@@ -13,21 +13,10 @@
 			"icon": "fa fa-address-book",
 			"href": "",
 			"target": "_self",
-			"child": [{
-					"title": "\u4E3B\u9875",
-					"href": "page/welcome-1.html",
-					"icon": "fa fa-tachometer",
-					"target": "_self"
-				},
+			"child": [
 				{
-					"title": "\u83DC\u5355\u7BA1\u7406",
-					"href": "page/menu.html",
-					"icon": "fa fa-window-maximize",
-					"target": "_self"
-				},
-				{
-					"title": "\u7CFB\u7EDF\u8BBE\u7F6E",
-					"href": "page/setting.html",
+					"title": "\u8BA2\u5355\u5217\u8868",
+					"href": "table?action=gift",
 					"icon": "fa fa-gears",
 					"target": "_self"
 				},
